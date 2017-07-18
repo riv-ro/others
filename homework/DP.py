@@ -30,7 +30,9 @@ def DP():
     print('Ans, ' + str(dp[0][W]))
 
 if __name__ == '__main__':
+
+    #漸化式を用いた実装
     start = time.time()
     DP()
     elapsed_time = time.time() - start
-    print ("elapsed_time:{0}".format(elapsed_time) + "[sec]")
+    print ('elapsed_time:{0}'.format(elapsed_time) + '[sec]')
