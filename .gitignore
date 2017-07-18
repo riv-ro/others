@@ -1,2 +1,5 @@
 #MacのFinderで生成されるので除外
 .DS_Store
+
+#Python環境設定
+.python-version
