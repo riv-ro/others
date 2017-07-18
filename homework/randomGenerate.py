@@ -1,6 +1,6 @@
 import numpy as np
 
-num = 500
+num = 750
 
 #再現性のためにシードを固定
 np.random.seed(seed=32)
