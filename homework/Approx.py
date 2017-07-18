@@ -8,8 +8,13 @@ def approx():
     # w = list(map(int, input('w: ').split()))
     # v = list(map(int, input('v: ').split()))
 
-    w = np.array([2,2,1,3,4,2,5,7,7,5,3,3,1,7,5,9,4,9])
-    v = np.array([4,5,2,8,3,5,6,7,3,6,2,6,7,6,1,9,6,5])
+    # w = np.array([2,2,1,3,4,2,5,7,7,5,3,3,1,7,5,9,4,9])
+    # v = np.array([4,5,2,8,3,5,6,7,3,6,2,6,7,6,1,9,6,5])
+    # N = len(w)
+    # W = 30
+
+    w = np.load('./weight_50.npy')
+    v = np.load('./value_50.npy')
     N = len(w)
     W = 30
 
@@ -27,23 +32,27 @@ def approx():
     evaluates = v/w
 
     # DataFrameにまとめる
-    target_df = DataFrame(np.c_[evaluates, w, v, results], index=np.arange(N), columns = ['evaluate', 'weight', 'value', 'result'])
+    target_df = DataFrame(np.c_[evaluates, w, v, results])
+    target_df.index = np.arange(N)
+    target_df.columns = ['evaluate', 'weight', 'value', 'result']
     # evaluateの値で降順に並び替える
-    target_df.sort_values('evaluate', ascending=False)
+    target_df = target_df.sort_values(by='evaluate', ascending=False)
 
     # 採択した項目のweightの和。初期値0。
     weight_sum = 0
-
+    value_sum = 0
     # 評価値の高いものからループを回す
     for index, target in target_df.iterrows():
         # 制約条件をクリアしたら採択
-        if weight_sum + target['weight'] <= 6:
+        if weight_sum + target['weight'] <= W:
             weight_sum += target['weight']
             target['result'] = 1
+            value_sum += target['value']
 
     print(target_df)
     print("---answer---")
-    print(target_df['result'])
+    print('Ans, ' + str(value_sum))
+
 
 if __name__ == '__main__':
 
