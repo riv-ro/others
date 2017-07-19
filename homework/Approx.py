@@ -13,8 +13,8 @@ def approx():
     # N = len(w)
     # W = 30
 
-    w = np.load('./weight_750.npy')
-    v = np.load('./value_750.npy')
+    w = np.load('./npy/weight_750.npy')
+    v = np.load('./npy/value_750.npy')
     N = len(w)
     W = 30
 
