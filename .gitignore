@@ -1,8 +1,26 @@
-#MacのFinderで生成されるので除外
+
+#MacのFinderでのみ生成されるので除外
 *.DS_Store
 
 #Python環境設定
 *.python-version
 
-# バイナリファイル
+#画像ファイルを除外
+*.jpeg
+*.jpg
+*.JPG
+*.JPEG
+*.png
+*.PNG
+*.tif
+*.tiff
+*.TIF
+*.TIFF
+*.gif
+*.GIF
+
+#PDFも除外
+*.pdf
+
+#numpyのバイナリファイル
 *.npy
