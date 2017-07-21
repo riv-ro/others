@@ -3,3 +3,6 @@
 
 #Python環境設定
 *.python-version
+
+# バイナリファイル
+*.npy
